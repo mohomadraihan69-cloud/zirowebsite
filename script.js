@@ -1,131 +1,40 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+window.potatoNotice = function(){
 
+let notice = document.createElement("div");
 
-import { 
-getAuth,
-createUserWithEmailAndPassword,
-signInWithEmailAndPassword,
-signOut
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
+notice.innerHTML = 
+`
+RS.300/=
+<br>
+WHATSAPP - 0789288998
+`;
 
 
-const firebaseConfig = {
+notice.style.position="fixed";
+notice.style.top="30px";
+notice.style.left="50%";
+notice.style.transform="translateX(-50%)";
+notice.style.background="red";
+notice.style.color="white";
+notice.style.padding="25px 40px";
+notice.style.borderRadius="15px";
+notice.style.fontSize="25px";
+notice.style.fontWeight="bold";
+notice.style.textAlign="center";
+notice.style.boxShadow="0 0 20px red";
+notice.style.zIndex="9999";
 
-apiKey: "AIzaSyA2QDtlK3lSuzVJKrnvUYSfjGptus2sj4M",
 
-authDomain: "ziro-minnu.firebaseapp.com",
+document.body.appendChild(notice);
 
-projectId: "ziro-minnu",
 
-storageBucket: "ziro-minnu.firebasestorage.app",
 
-messagingSenderId: "1028269422903",
+setTimeout(()=>{
 
-appId: "1:1028269422903:web:b88a59407bef62115642b2"
+notice.remove();
 
-};
+},5000);
 
 
-
-const app = initializeApp(firebaseConfig);
-
-const auth = getAuth(app);
-
-
-
-
-
-window.registerUser = function(){
-
-
-let email=document.getElementById("email").value;
-
-let password=document.getElementById("password").value;
-
-
-
-createUserWithEmailAndPassword(auth,email,password)
-
-.then(()=>{
-
-alert("Register Success");
-
-window.location.href="login.html";
-
-})
-
-
-.catch((error)=>{
-
-alert(error.message);
-
-});
-
-
-};
-
-
-
-
-
-window.loginUser = function(){
-
-
-let email=document.getElementById("email").value;
-
-let password=document.getElementById("password").value;
-
-
-
-signInWithEmailAndPassword(auth,email,password)
-
-
-.then(()=>{
-
-
-alert("Login Success");
-
-
-localStorage.setItem("login","true");
-
-
-window.location.href="index.html";
-
-
-})
-
-
-.catch(()=>{
-
-alert("Wrong Email or Password");
-
-});
-
-
-};
-
-
-
-
-
-window.logout=function(){
-
-
-signOut(auth)
-
-.then(()=>{
-
-
-localStorage.removeItem("login");
-
-alert("Bye Bye ZIRO MINNU");
-
-
-window.location.href="login.html";
-
-
-});
-
-
-};
+}
