@@ -1,10 +1,10 @@
 window.potatoNotice = function(){
 
-
 let notice = document.createElement("div");
 
 
-notice.innerHTML = `
+notice.innerHTML = 
+`
 RS.300/=
 <br>
 WHATSAPP - 0789288998
@@ -22,6 +22,7 @@ notice.style.borderRadius="15px";
 notice.style.fontSize="25px";
 notice.style.fontWeight="bold";
 notice.style.textAlign="center";
+notice.style.boxShadow="0 0 20px red";
 notice.style.zIndex="9999";
 
 
