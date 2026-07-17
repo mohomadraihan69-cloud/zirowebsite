@@ -7,9 +7,10 @@
 
 <link rel="stylesheet" href="style.css">
 
+
 <script>
 
-if(localStorage.getItem("login")!="true"){
+if(localStorage.getItem("login") !== "true"){
 
 window.location.href="login.html";
 
@@ -17,10 +18,14 @@ window.location.href="login.html";
 
 </script>
 
+
 </head>
 
 
 <body>
+
+
+<div class="main-box">
 
 
 <img src="logo.png" class="logo">
@@ -29,164 +34,40 @@ window.location.href="login.html";
 <h1>ZIRO MINNU</h1>
 
 
-
-<!-- Ziro Reg -->
-
-<div class="box">
-
-<h2>Regedit Section</h2>
-
-<p>Download Ziro Reg File</p>
+<h2>Downloads</h2>
 
 
-<button onclick="regDownload()">
-
-Download Ziro Reg
-
+<a href="files/ziro.rar" download>
+<button>
+Download Ziro
 </button>
-
-
-</div>
-
-
-
-
-
-<!-- Potato Graphics -->
-
-<div class="box">
-
-<h2>Download Potato Graphics</h2>
-
-<p>Get Potato Graphics File</p>
-
-
-<button onclick="potatoDownload()">
-
-Download Potato Graphics
-
-</button>
-
-
-</div>
-
-
-
-
-
-<!-- Wallpapers -->
-
-<div class="box">
-
-<h2>Wallpapers</h2>
-
-<p>Download Ziro Wallpapers</p>
-
-
-<button onclick="wallpaperDownload()">
-
-Download Wallpapers
-
-</button>
-
-
-</div>
-
-
-
-
-
-
-<!-- YouTube -->
-
-<div class="box">
-
-<h2>YouTube Channel</h2>
-
-<p>Subscribe For More Updates 🔥</p>
-
-
-<a href="https://www.youtube.com/@zirominnu" target="_blank">
-
-<button class="youtube-btn">
-
-▶ Visit YouTube Channel
-
-</button>
-
 </a>
 
 
-</div>
-<!-- Discord Server -->
+<br><br>
 
-<div class="box">
 
-    <h2>Discord Server</h2>
-
-    <p>Join Our Official Discord Community 💙</p>
-
-    <a href="https://discord.gg/DzR8GtnKN" target="_blank">
-
-        <button class="discord-btn">
-            💬 Join Discord Server
-        </button>
-
-    </a>
-
-</div>
-<!-- WhatsApp Group -->
-
-<div class="box">
-
-    <h2>WhatsApp Group</h2>
-
-    <p>Join Our Official WhatsApp Group 💚</p>
-
-    <a href="https://chat.whatsapp.com/Bgqtn2AAogb89F7bWk4HjW" target="_blank">
-
-        <button class="whatsapp-btn">
-            💬 Join WhatsApp Group
-        </button>
-
-    </a>
-
-</div>
+<a href="files/Potato Graphics.rar" download>
+<button>
+Download Potato Graphics
+</button>
+</a>
 
 
 
+<br><br>
 
 
-
-<div class="view-count">
-
-👁 Visitors: <span id="views">0</span>
-
-</div>
-
-
-
-
-
-
-<div id="notifyBox"></div>
-
-
-
-
-
-
-<button class="logout" onclick="logout()">
-
+<button onclick="logout()">
 Logout
-
 </button>
 
 
+</div>
 
 
 
-<script src="script.js"></script>
+<script type="module" src="script.js"></script>
 
 
 </body>

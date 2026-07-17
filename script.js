@@ -1,185 +1,131 @@
-function login(){
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
 
-let user=document.getElementById("username").value;
+import { 
+getAuth,
+createUserWithEmailAndPassword,
+signInWithEmailAndPassword,
+signOut
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
-let pass=document.getElementById("password").value;
+
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyA2QDtlK3lSuzVJKrnvUYSfjGptus2sj4M",
+
+authDomain: "ziro-minnu.firebaseapp.com",
+
+projectId: "ziro-minnu",
+
+storageBucket: "ziro-minnu.firebasestorage.app",
+
+messagingSenderId: "1028269422903",
+
+appId: "1:1028269422903:web:b88a59407bef62115642b2"
+
+};
 
 
 
-if(user=="ziro" && pass=="1234"){
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
 
 
-let voice=new SpeechSynthesisUtterance("Welcome to Ziro Minnu");
 
-speechSynthesis.speak(voice);
 
+
+window.registerUser = function(){
+
+
+let email=document.getElementById("email").value;
+
+let password=document.getElementById("password").value;
+
+
+
+createUserWithEmailAndPassword(auth,email,password)
+
+.then(()=>{
+
+alert("Register Success");
+
+window.location.href="login.html";
+
+})
+
+
+.catch((error)=>{
+
+alert(error.message);
+
+});
+
+
+};
+
+
+
+
+
+window.loginUser = function(){
+
+
+let email=document.getElementById("email").value;
+
+let password=document.getElementById("password").value;
+
+
+
+signInWithEmailAndPassword(auth,email,password)
+
+
+.then(()=>{
+
+
+alert("Login Success");
 
 
 localStorage.setItem("login","true");
 
 
-
-setTimeout(function(){
-
 window.location.href="index.html";
 
-},2000);
+
+})
 
 
-}
+.catch(()=>{
 
-else{
+alert("Wrong Email or Password");
 
-alert("Wrong Username or Password");
-
-}
+});
 
 
-}
-
+};
 
 
 
 
 
-function logout(){
+window.logout=function(){
 
 
-let voice=new SpeechSynthesisUtterance("Bye Bye Ziro Minnu");
+signOut(auth)
 
-speechSynthesis.speak(voice);
-
+.then(()=>{
 
 
 localStorage.removeItem("login");
+
+alert("Bye Bye ZIRO MINNU");
 
 
 window.location.href="login.html";
 
 
-}
+});
 
 
-
-
-
-
-
-function showNotify(text,time){
-
-
-let box=document.getElementById("notifyBox");
-
-
-box.innerHTML=text;
-
-
-box.style.display="block";
-
-
-
-setTimeout(function(){
-
-box.style.display="none";
-
-},time);
-
-
-}
-
-
-
-
-
-
-
-function downloadFile(file,message){
-
-
-showNotify(message,3000);
-
-
-
-let a=document.createElement("a");
-
-
-a.href="files/"+file;
-
-
-a.download=file;
-
-
-document.body.appendChild(a);
-
-
-a.click();
-
-
-document.body.removeChild(a);
-
-
-}
-
-
-
-
-
-
-
-
-function regDownload(){
-
-
-downloadFile(
-
-"ziro.rar",
-
-"✅ Ziro Reg Download Started"
-
-);
-
-
-}
-
-
-
-
-
-
-
-
-function potatoDownload(){
-
-
-showNotify(
-
-"🔴 RS.300/= WHATSAPP - 078 9288 998",
-
-4000
-
-);
-
-
-}
-
-
-
-
-
-
-
-
-function wallpaperDownload(){
-
-
-downloadFile(
-
-"files.rar",
-
-"✅ Wallpapers Download Started"
-
-);
-
-
-}
+};
